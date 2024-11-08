@@ -1,0 +1,169 @@
+[gd_scene load_steps=11 format=3 uid="uid://b0f6td2soy7v3"]
+
+[ext_resource type="Script" path="res://Scenes/inicial_page.gd" id="1_i4yc5"]
+[ext_resource type="Texture2D" uid="uid://mvpv4ctgt6fg" path="res://assets/title-screen.jpg" id="1_sv73c"]
+[ext_resource type="Texture2D" uid="uid://cnocd6fvsyyl8" path="res://assets/Mini FXItemsUI/Mini-UI/game_logo.png" id="2_6nomi"]
+[ext_resource type="Theme" uid="uid://gjypwgr0w57g" path="res://BottonTheme.tres" id="3_732jg"]
+[ext_resource type="Texture2D" uid="uid://gxy5j2kfmr7o" path="res://assets/SpritePack2/2 - Mr. Mochi/Jumping (32 x 32).png" id="4_34k3x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6qgfa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wm6ke"]
+
+[sub_resource type="Animation" id="Animation_bj216"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bg:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer/HBoxContainer/mochi:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_71ymh"]
+resource_name = "reveal"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bg:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.166667, 0.466667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.433333, 0.866667),
+"transitions": PackedFloat32Array(0.225313, 1),
+"update": 0,
+"values": [Vector2(-400, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer/HBoxContainer/mochi:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.166667, 0.766667, 1.26667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ettx4"]
+_data = {
+"RESET": SubResource("Animation_bj216"),
+"reveal": SubResource("Animation_71ymh")
+}
+
+[node name="InicialPage" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i4yc5")
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 2
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_sv73c")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_6nomi")
+
+[node name="start" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_732jg")
+text = "INICIAR"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_6qgfa")
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_wm6ke")
+
+[node name="quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_732jg")
+text = "SAIR"
+
+[node name="mochi" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_34k3x")
+expand_mode = 2
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ettx4")
+}
+autoplay = "reveal"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]
