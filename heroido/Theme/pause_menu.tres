@@ -1,0 +1,21 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://eotshwh5ssgd"]
+
+[ext_resource type="FontFile" uid="uid://defiluca7mogt" path="res://assets/font.ttf" id="1_8lpbp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v7fbs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5v5xc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7va1t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jb6f8"]
+
+[resource]
+Button/colors/font_focus_color = Color(0.0117647, 0.917647, 0, 1)
+Button/colors/font_hover_color = Color(0.0117647, 0.917647, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0.917647, 0.541176, 0, 1)
+Button/fonts/font = ExtResource("1_8lpbp")
+Button/styles/focus = SubResource("StyleBoxEmpty_v7fbs")
+Button/styles/hover = SubResource("StyleBoxEmpty_5v5xc")
+Button/styles/hover_pressed = SubResource("StyleBoxEmpty_7va1t")
+Button/styles/normal = SubResource("StyleBoxEmpty_jb6f8")

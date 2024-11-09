@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dehjiumbvbmgn"]
+[gd_scene load_steps=11 format=3 uid="uid://dehjiumbvbmgn"]
 
 [ext_resource type="Texture2D" uid="uid://byufd08fc0d2a" path="res://assets/SeasonalTilesets/1 - Grassland/Terrain (16 x 16).png" id="1_smocs"]
 [ext_resource type="Texture2D" uid="uid://4tkea1pw4ogw" path="res://assets/SeasonalTilesets/1 - Grassland/Grassland_entities (16 x 16).png" id="2_kwa4d"]
 [ext_resource type="PackedScene" uid="uid://8p2vdy4c1dvu" path="res://actors/player.tscn" id="3_m3ae3"]
+[ext_resource type="PackedScene" uid="uid://bp73bad4tron5" path="res://Scenes/pause_menu.tscn" id="4_b5nkg"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_rrvt5"]
 tile_data = PackedInt32Array(0, 65537, 1)
@@ -139,3 +140,5 @@ layer_1/tile_data = PackedInt32Array(851985, 589825, 1, 851973, 327681, 1, 78646
 
 [node name="player" parent="." instance=ExtResource("3_m3ae3")]
 position = Vector2(44, 239)
+
+[node name="pause_menu" parent="." instance=ExtResource("4_b5nkg")]
