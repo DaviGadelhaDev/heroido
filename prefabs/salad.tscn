@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://phjr3x1gqt78"]
+
+[ext_resource type="Texture2D" uid="uid://lkrdglrv417f" path="res://asserts/Mini FX, Items & UI (1)/Mini FX, Items & UI/Food Items/Salad_Bowl (16 x 16).png" id="1_8ir4n"]
+[ext_resource type="Script" path="res://level/scripts/salad.gd" id="1_tk55t"]
+[ext_resource type="Texture2D" uid="uid://c5ha2rhcos8x1" path="res://asserts/Mini FX, Items & UI (1)/Mini FX, Items & UI/Effects/Bright_Sparkle (16 x 16).png" id="2_i71oe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur4ny"]
+atlas = ExtResource("2_i71oe")
+region = Rect2(0, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hloqj"]
+atlas = ExtResource("2_i71oe")
+region = Rect2(20, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbywm"]
+atlas = ExtResource("2_i71oe")
+region = Rect2(40, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnffr"]
+atlas = ExtResource("2_i71oe")
+region = Rect2(60, 0, 20, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jloq7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur4ny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hloqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbywm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hnffr")
+}],
+"loop": true,
+"name": &"animacao_boa",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8ir4n")
+}],
+"loop": false,
+"name": &"salad",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xfj1"]
+size = Vector2(18, 9)
+
+[node name="salad" type="Area2D"]
+collision_layer = 8
+script = ExtResource("1_tk55t")
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jloq7")
+animation = &"salad"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_7xfj1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]

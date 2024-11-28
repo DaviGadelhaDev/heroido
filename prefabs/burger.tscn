@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://r2viluquq2tn"]
+
+[ext_resource type="Texture2D" uid="uid://tbuywjtlyx45" path="res://asserts/Mini FX, Items & UI (1)/Mini FX, Items & UI/Food Items/Burger_&_Fries (16 x 16).png" id="1_6cg1t"]
+[ext_resource type="Script" path="res://level/scripts/burger.gd" id="1_tvh4t"]
+[ext_resource type="Texture2D" uid="uid://12ydmuwc5tfw" path="res://asserts/Mini FX, Items & UI (1)/Mini FX, Items & UI/Effects/Yellow_Sparkle (16 x 16).png" id="2_6kgrc"]
+[ext_resource type="AudioStream" uid="uid://nmhk5iy3aawo" path="res://sounds/402767__matrixxx__retro-coin-03.wav" id="4_gb5rk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hath2"]
+atlas = ExtResource("2_6kgrc")
+region = Rect2(0, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vbyo"]
+atlas = ExtResource("2_6kgrc")
+region = Rect2(20, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5non"]
+atlas = ExtResource("2_6kgrc")
+region = Rect2(40, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ia8t7"]
+atlas = ExtResource("2_6kgrc")
+region = Rect2(60, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56h4r"]
+atlas = ExtResource("1_6cg1t")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdu07"]
+atlas = ExtResource("1_6cg1t")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xsiot"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hath2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vbyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5non")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ia8t7")
+}],
+"loop": true,
+"name": &"animacao_ruim",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56h4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdu07")
+}],
+"loop": true,
+"name": &"burguer",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1axuo"]
+radius = 7.28011
+
+[node name="burger" type="Area2D"]
+collision_layer = 8
+script = ExtResource("1_tvh4t")
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xsiot")
+animation = &"animacao_ruim"
+autoplay = "burguer"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_1axuo")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_gb5rk")
+volume_db = -10.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]

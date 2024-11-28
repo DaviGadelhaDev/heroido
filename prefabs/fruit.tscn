@@ -1,0 +1,147 @@
+[gd_scene load_steps=22 format=3 uid="uid://b6dxc45lnov8j"]
+
+[ext_resource type="Script" path="res://level/scripts/fruit.gd" id="1_ehy0y"]
+[ext_resource type="Texture2D" uid="uid://djdey5i6sj5dv" path="res://asserts/Mini FX, Items & UI (1)/Mini FX, Items & UI/Food Items/Fruits (16 x 16).png" id="1_xewpm"]
+[ext_resource type="Texture2D" uid="uid://c5ha2rhcos8x1" path="res://asserts/Mini FX, Items & UI (1)/Mini FX, Items & UI/Effects/Bright_Sparkle (16 x 16).png" id="2_l3uiw"]
+[ext_resource type="Texture2D" uid="uid://12ydmuwc5tfw" path="res://asserts/Mini FX, Items & UI (1)/Mini FX, Items & UI/Effects/Yellow_Sparkle (16 x 16).png" id="3_o1r6t"]
+[ext_resource type="AudioStream" uid="uid://nmhk5iy3aawo" path="res://sounds/402767__matrixxx__retro-coin-03.wav" id="5_fw87b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qs05p"]
+atlas = ExtResource("2_l3uiw")
+region = Rect2(0, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_madnv"]
+atlas = ExtResource("2_l3uiw")
+region = Rect2(20, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdfs7"]
+atlas = ExtResource("2_l3uiw")
+region = Rect2(40, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06qbm"]
+atlas = ExtResource("3_o1r6t")
+region = Rect2(0, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3ug8"]
+atlas = ExtResource("3_o1r6t")
+region = Rect2(20, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0xi6"]
+atlas = ExtResource("3_o1r6t")
+region = Rect2(40, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4cwr"]
+atlas = ExtResource("3_o1r6t")
+region = Rect2(60, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdyes"]
+atlas = ExtResource("1_xewpm")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amwtf"]
+atlas = ExtResource("1_xewpm")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1yqsf"]
+atlas = ExtResource("1_xewpm")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qodnf"]
+atlas = ExtResource("1_xewpm")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbu7j"]
+atlas = ExtResource("1_xewpm")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jl3c"]
+atlas = ExtResource("1_xewpm")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bl78n"]
+atlas = ExtResource("1_xewpm")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ghqn5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qs05p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_madnv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdfs7")
+}],
+"loop": false,
+"name": &"animacao_boa",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06qbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3ug8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0xi6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4cwr")
+}],
+"loop": false,
+"name": &"animacao_ruim",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdyes")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amwtf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1yqsf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qodnf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbu7j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jl3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bl78n")
+}],
+"loop": true,
+"name": &"fruit",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m00l1"]
+radius = 5.38516
+
+[node name="fruit" type="Area2D" groups=["burger", "fruit"]]
+collision_layer = 8
+script = ExtResource("1_ehy0y")
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+light_mask = 8
+sprite_frames = SubResource("SpriteFrames_ghqn5")
+animation = &"fruit"
+autoplay = "fruit"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_m00l1")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_fw87b")
+volume_db = -10.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]

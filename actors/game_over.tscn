@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://bc6uk4f3rasu0"]
+
+[ext_resource type="Script" path="res://level/scripts/game_over.gd" id="1_f3l3k"]
+[ext_resource type="Texture2D" uid="uid://vnkbu26o7mhj" path="res://asserts/gameOver.jpeg" id="1_nuvjm"]
+[ext_resource type="AudioStream" uid="uid://b5qhtyf4dgy32" path="res://sounds/game_overAudio.wav" id="2_ki234"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ut731"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x0gg7"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f3l3k")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_nuvjm")
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ut731")
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "REINICIAR"
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_x0gg7")
+
+[node name="quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "SAIR"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ki234")
+volume_db = -10.0
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]
