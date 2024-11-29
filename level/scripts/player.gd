@@ -47,7 +47,7 @@ func _physics_process(delta: float) -> void:
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Enemies"):
 		# Jogador matando o inimigo ao pular sobre ele
-		if velocity.y > 0 and global_position.y < body.global_position.y:  # Verificando se o jogador está caindo
+		if velocity.y > 0 and global_position.y + 10 < body.global_position.y:  # Verificando se o jogador está caindo
 			print("Você matou o inimigo!")
 			body.queue_free()  # Remove o inimigo
 			velocity.y = JUMP_VELOCITY  # Faz o jogador "quicar"

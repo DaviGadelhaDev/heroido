@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cqjpid71k36wf"]
+[gd_scene load_steps=23 format=3 uid="uid://cqjpid71k36wf"]
 
 [ext_resource type="Texture2D" uid="uid://cnssfeea8mxf6" path="res://asserts/Seasonal Tilesets (1)/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="1_0wlh7"]
 [ext_resource type="Texture2D" uid="uid://k57wj4basmf4" path="res://asserts/Seasonal Tilesets (1)/Seasonal Tilesets/1 - Grassland/Grassland_entities (16 x 16).png" id="2_pj5lm"]
@@ -11,8 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://dftcbi2ptj73n" path="res://asserts/Seasonal Tilesets (1)/Seasonal Tilesets/1 - Grassland/Background parts/1 - Foreground_scenery.png" id="8_7vpf2"]
 [ext_resource type="PackedScene" uid="uid://bwqmn61x6ayx5" path="res://prefabs/moving_platform.tscn" id="10_1iyhn"]
 [ext_resource type="PackedScene" uid="uid://phjr3x1gqt78" path="res://prefabs/salad.tscn" id="11_ykixm"]
-[ext_resource type="PackedScene" uid="uid://cpc7co05y6qop" path="res://prefabs/ice_cream.tscn" id="12_da5pl"]
-[ext_resource type="PackedScene" uid="uid://r2viluquq2tn" path="res://prefabs/burger.tscn" id="13_8d6n6"]
 [ext_resource type="PackedScene" uid="uid://b6dxc45lnov8j" path="res://prefabs/fruit.tscn" id="14_fqsno"]
 [ext_resource type="PackedScene" uid="uid://d0vy1xqih4cxe" path="res://actors/enemy.tscn" id="15_ungv3"]
 [ext_resource type="AudioStream" uid="uid://ccbra2ooy7rp7" path="res://sounds/566208__awazixosh__its-time-for-an-adventure.wav" id="16_s2w2g"]
@@ -87,7 +85,9 @@ texture = ExtResource("1_0wlh7")
 2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:3/0/physics_layer_0/polygon_0/one_way = true
 3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:3/0 = 0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:3/0 = 0
 5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:3/0 = 0
@@ -116,6 +116,7 @@ texture = ExtResource("1_0wlh7")
 2:4/0 = 0
 2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:4/0 = 0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:4/0 = 0
 4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:4/0 = 0
@@ -239,59 +240,8 @@ centered = false
 
 [node name="Node2D" type="Node2D" parent="."]
 
-[node name="burger" parent="." instance=ExtResource("13_8d6n6")]
-position = Vector2(402, 273)
-
-[node name="burger3" parent="." instance=ExtResource("13_8d6n6")]
-position = Vector2(915, 266)
-
-[node name="burger5" parent="." instance=ExtResource("13_8d6n6")]
-position = Vector2(1203, 101)
-
-[node name="burger8" parent="." instance=ExtResource("13_8d6n6")]
-position = Vector2(2132, 240)
-
-[node name="burger11" parent="." instance=ExtResource("13_8d6n6")]
-position = Vector2(2872, 232)
-
-[node name="burger13" parent="." instance=ExtResource("13_8d6n6")]
-position = Vector2(3519, 222)
-
-[node name="burger16" parent="." instance=ExtResource("13_8d6n6")]
-position = Vector2(3953, 51)
-
-[node name="burger17" parent="." instance=ExtResource("13_8d6n6")]
-position = Vector2(3589, 101)
-
-[node name="burger14" parent="." instance=ExtResource("13_8d6n6")]
-position = Vector2(3326, 186)
-
-[node name="burger15" parent="." instance=ExtResource("13_8d6n6")]
-position = Vector2(3095, 230)
-
-[node name="burger12" parent="." instance=ExtResource("13_8d6n6")]
-position = Vector2(2307, 126)
-
-[node name="burger9" parent="." instance=ExtResource("13_8d6n6")]
-position = Vector2(1830, 248)
-
-[node name="burger10" parent="." instance=ExtResource("13_8d6n6")]
-position = Vector2(1760, 0)
-
-[node name="burger6" parent="." instance=ExtResource("13_8d6n6")]
-position = Vector2(1425, 230)
-
-[node name="burger7" parent="." instance=ExtResource("13_8d6n6")]
-position = Vector2(1178, 258)
-
-[node name="burger4" parent="." instance=ExtResource("13_8d6n6")]
-position = Vector2(678, 214)
-
 [node name="fruit" parent="." instance=ExtResource("14_fqsno")]
 position = Vector2(150, 126)
-
-[node name="ice-cream" parent="." instance=ExtResource("12_da5pl")]
-position = Vector2(294, 222)
 
 [node name="salad" parent="." instance=ExtResource("11_ykixm")]
 position = Vector2(4598, 302)
@@ -300,61 +250,61 @@ position = Vector2(4598, 302)
 position = Vector2(219, 134)
 
 [node name="enemy23" parent="." instance=ExtResource("15_ungv3")]
-position = Vector2(574, 281)
+position = Vector2(574, 266)
 
 [node name="enemy24" parent="." instance=ExtResource("15_ungv3")]
-position = Vector2(614, 283)
+position = Vector2(616, 269)
 
 [node name="enemy7" parent="." instance=ExtResource("15_ungv3")]
-position = Vector2(1637, 258)
+position = Vector2(1636, 248)
 
 [node name="enemy8" parent="." instance=ExtResource("15_ungv3")]
-position = Vector2(412, 283)
+position = Vector2(409, 269)
 
 [node name="enemy9" parent="." instance=ExtResource("15_ungv3")]
-position = Vector2(3237, 234)
+position = Vector2(3218, 221)
 
 [node name="enemy25" parent="." instance=ExtResource("15_ungv3")]
-position = Vector2(3294, 233)
+position = Vector2(3282, 211)
 
 [node name="enemy26" parent="." instance=ExtResource("15_ungv3")]
-position = Vector2(3398, 228)
+position = Vector2(3404, 215)
 
 [node name="enemy21" parent="." instance=ExtResource("15_ungv3")]
-position = Vector2(3795, 220)
+position = Vector2(3794, 206)
 
 [node name="enemy22" parent="." instance=ExtResource("15_ungv3")]
-position = Vector2(3704, 105)
+position = Vector2(3700, 89)
 
 [node name="enemy10" parent="." instance=ExtResource("15_ungv3")]
-position = Vector2(2431, 246)
+position = Vector2(2431, 235)
 
 [node name="enemy11" parent="." instance=ExtResource("15_ungv3")]
 position = Vector2(1561, 0)
 
 [node name="enemy12" parent="." instance=ExtResource("15_ungv3")]
-position = Vector2(2093, 256)
+position = Vector2(2087, 243)
 
 [node name="enemy13" parent="." instance=ExtResource("15_ungv3")]
-position = Vector2(1168, 267)
+position = Vector2(1149, 258)
 
 [node name="enemy14" parent="." instance=ExtResource("15_ungv3")]
-position = Vector2(2984, 236)
+position = Vector2(2978, 221)
 
 [node name="enemy15" parent="." instance=ExtResource("15_ungv3")]
-position = Vector2(1627, 117)
+position = Vector2(1619, 109)
 
 [node name="enemy16" parent="." instance=ExtResource("15_ungv3")]
-position = Vector2(1893, 293)
+position = Vector2(1890, 279)
 
 [node name="enemy17" parent="." instance=ExtResource("15_ungv3")]
-position = Vector2(2219, 134)
+position = Vector2(2219, 116)
 
 [node name="enemy18" parent="." instance=ExtResource("15_ungv3")]
-position = Vector2(2024, 293)
+position = Vector2(2020, 282)
 
 [node name="enemy19" parent="." instance=ExtResource("15_ungv3")]
-position = Vector2(979, 274)
+position = Vector2(976, 259)
 
 [node name="enemy20" parent="." instance=ExtResource("15_ungv3")]
 position = Vector2(729, 118)

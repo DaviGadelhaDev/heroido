@@ -4,11 +4,8 @@ extends Node2D
 @onready var area_sign = $area_sign
 
 const lines : Array[String] = [
-	"Lembre-se ",
-	"comidas saudáveis",
-	"fazem bem;",
-	"afaste-se", 
-	"das gordurosas."
+	"Você conseguiu!",
+	"Pegue a salada."
 ]
 func _unhandled_input(event: InputEvent) -> void:
 	if area_sign.get_overlapping_bodies().size() > 0:
